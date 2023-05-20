@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
+
+$triages: success, info, warning, danger;
+
+@mixin btnStyle($type) {
+  background-color: var(--#{$type}-color) !important;
+  box-shadow: 0px 12px 24px -12px var(--#{$type}-half-color) !important;
+
+  transition: background-color 160ms ease-in-out;
+  &:hover {
+    background-color: var(--dark-#{$type}-color) !important;
+  }
+}
+
+#sidebar-shortcuts-large > button {
+  border-radius: 6px;
+  border: none !important;
+  padding: {
+    top: 2px !important;
+    bottom: 2px !important;
+  }
+  width: 39px;
+
+  @each $triage in $triages {
+    &.btn-#{$triage} {
+      @include btnStyle($triage);
+    }
+  }
+}
+#sidebar-shortcuts-mini > span {
+  @each $triage in $triages {
+    &.btn-#{$triage} {
+      @include btnStyle($triage);
+    }
+  }
+}
