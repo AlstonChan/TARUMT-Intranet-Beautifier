@@ -7,7 +7,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://web.tarc.edu.my/*"
+                "https://web.tarc.edu.my/*",
+                "https://reg.tarc.edu.my/*"
             ],
             "css": [
                 "dist/style.css"

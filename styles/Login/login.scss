@@ -1,0 +1,142 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
+
+h1[align="center"] {
+  font-weight: bold !important;
+}
+
+div#login-box {
+  border: none;
+  background: none;
+
+  & div.widget-main {
+    & h4 {
+      font-weight: bold;
+    }
+
+    & form#loginForm {
+      & span.input-icon {
+        input {
+          padding-left: 10px;
+          border: var(--blue-color) 1px solid;
+          border-radius: 6px !important;
+
+          transition: border 60ms ease-in-out, color 60ms ease-in-out;
+          &:focus {
+            border: var(--cyan-color) 2px solid;
+
+            & + i.ace-icon {
+              color: var(--cyan-color);
+            }
+          }
+          &::placeholder {
+            color: var(--light-grey-txt);
+          }
+        }
+
+        & i.ace-icon {
+          color: var(--blue-color);
+
+          transition: color 60ms ease-in-out;
+        }
+      }
+
+      & div.clearfix {
+        & button {
+          background-color: var(--info-color) !important;
+          border: none !important;
+          padding: 7px 15px !important;
+          width: fit-content !important;
+          border-radius: 6px !important;
+
+          transition: background-color 160ms ease-in-out;
+
+          &:hover,
+          &:focus {
+            background-color: var(--dark-info-color) !important;
+          }
+        }
+      }
+    }
+
+    & div.social-login {
+      & a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: none !important;
+        border: none !important;
+        border-radius: 0;
+
+        background-color: var(--cyan-color) !important;
+        border-radius: 8px;
+
+        transition: background-color 160ms ease-in-out;
+        &:hover,
+        &:focus {
+          background-color: var(--dark-cyan-color) !important;
+        }
+
+        & > img {
+          position: relative;
+          width: 40px !important;
+          height: auto;
+          aspect-ratio: 63/74;
+          padding: 7.5px 8.5px;
+        }
+
+        & > span {
+          color: #fff !important;
+          text-shadow: none;
+
+          &:hover {
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+  }
+
+  & div.toolbar {
+    background-color: var(--blue-color);
+    & a.forgot-password-link {
+      color: #fff !important;
+
+      transition: color 160ms ease-in-out, font-weight 160ms ease-in-out;
+      &:hover {
+        font-weight: bold;
+        color: var(--light-highlight-color) !important;
+      }
+    }
+  }
+}
+
+div.center {
+  & div.alert-danger {
+    border-radius: 10px;
+    background-color: var(--danger-color);
+    color: #fff;
+    border: none;
+    margin-top: 20px;
+
+    & strong {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & i.ace-icon {
+        color: var(--warning-color) !important;
+      }
+
+      & span.bigger-150 {
+        font-size: 2rem;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  & span.black {
+    font-weight: bold !important;
+  }
+}

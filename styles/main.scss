@@ -3,12 +3,25 @@
 
 @use "./SideBar/sidebar-shortcuts.scss";
 @use "./Header/navbar.scss";
+@use "./Login/login.scss";
+
+body {
+  &.login-layout {
+    &.light-login {
+      background-size: cover !important;
+      background-repeat: no-repeat;
+    }
+  }
+}
 
 :root {
   // main color
   --blue-color: #1672a6;
   --cyan-color: #00b5b8;
   --dark-cyan-color: #00a0a3;
+  --brown-color: #e49d23;
+
+  --light-grey-text: #515151;
 
   // triage color
   --danger-color: #d74545;
@@ -23,5 +36,6 @@
   --success-color: #4d9a51;
   --success-half-color: #4d9a5180;
   --dark-success-color: #2d7831;
+  --light-highlight-color: #5bcff3;
   --highlight-color: #2eb9e4;
 }
