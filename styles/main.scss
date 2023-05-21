@@ -16,6 +16,8 @@ body {
 
 :root {
   // main color
+  --light-blue-color: #d3f4ff;
+  --dark-light-blue-color: #abcfdb;
   --blue-color: #1672a6;
   --cyan-color: #00b5b8;
   --dark-cyan-color: #00a0a3;
@@ -39,3 +41,7 @@ body {
   --light-highlight-color: #5bcff3;
   --highlight-color: #2eb9e4;
 }
+
+// div#main-container.main-container {
+//   background-color: var(--light-blue-color);
+// }

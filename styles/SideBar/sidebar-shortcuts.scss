@@ -13,25 +13,64 @@ $triages: success, info, warning, danger;
   }
 }
 
-#sidebar-shortcuts-large > button {
-  border-radius: 6px;
-  border: none !important;
-  padding: {
-    top: 2px !important;
-    bottom: 2px !important;
-  }
-  width: 39px;
+#sidebar-shortcuts {
+  background-color: var(--light-blue-color);
 
-  @each $triage in $triages {
-    &.btn-#{$triage} {
-      @include btnStyle($triage);
+  &-large > button {
+    border-radius: 6px;
+    border: none !important;
+    padding: {
+      top: 2px !important;
+      bottom: 2px !important;
+    }
+    width: 39px;
+
+    @each $triage in $triages {
+      &.btn-#{$triage} {
+        @include btnStyle($triage);
+      }
+    }
+  }
+
+  &-mini > span {
+    @each $triage in $triages {
+      &.btn-#{$triage} {
+        @include btnStyle($triage);
+      }
     }
   }
 }
-#sidebar-shortcuts-mini > span {
-  @each $triage in $triages {
-    &.btn-#{$triage} {
-      @include btnStyle($triage);
+
+ul.nav {
+  &.nav-list {
+    transition: background-color 160ms ease-in-out;
+    & > li {
+      & > a {
+        background-color: var(--light-blue-color) !important;
+
+        & > b.arrow {
+          transition: transform 160ms ease-in-out;
+        }
+      }
+      &.open > a {
+        background-color: var(--dark-light-blue-color) !important;
+
+        & > b.arrow {
+          transform: rotate(180deg);
+        }
+
+        & ~ ul.submenu > li.active > a {
+          font-weight: bold;
+
+          & > i.menu-icon {
+            color: inherit !important;
+          }
+        }
+      }
     }
   }
+}
+
+div.sidebar-toggle {
+  background-color: var(--light-blue-color) !important;
 }
