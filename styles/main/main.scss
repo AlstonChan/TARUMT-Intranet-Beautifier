@@ -1,0 +1,15 @@
+@use "./table.scss";
+
+div.main-content {
+  .page-content {
+    .page-header {
+      h1 {
+        font-weight: bold;
+
+        small {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

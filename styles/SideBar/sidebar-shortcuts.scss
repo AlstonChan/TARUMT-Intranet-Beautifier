@@ -14,8 +14,6 @@ $triages: success, info, warning, danger;
 }
 
 #sidebar-shortcuts {
-  background-color: var(--light-blue-color);
-
   &-large > button {
     border-radius: 6px;
     border: none !important;
@@ -45,15 +43,18 @@ ul.nav {
   &.nav-list {
     transition: background-color 160ms ease-in-out;
     & > li {
+      border-color: var(--blue-color);
+      font-weight: bold;
+
       & > a {
-        background-color: var(--light-blue-color) !important;
+        // background-color: var(--light-blue-color) !important;
 
         & > b.arrow {
           transition: transform 160ms ease-in-out;
         }
       }
       &.open > a {
-        background-color: var(--dark-light-blue-color) !important;
+        // background-color: var(--dark-light-blue-color) !important;
 
         & > b.arrow {
           transform: rotate(180deg);
@@ -72,5 +73,12 @@ ul.nav {
 }
 
 div.sidebar-toggle {
-  background-color: var(--light-blue-color) !important;
+  // background-color: var(--light-blue-color) !important;
+  border-color: var(--blue-color) !important;
+
+  cursor: pointer;
+
+  &::before {
+    border-color: var(--blue-color) !important;
+  }
 }

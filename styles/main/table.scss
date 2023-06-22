@@ -1,0 +1,38 @@
+div.main-content {
+  .page-content {
+    div.row {
+      div.col-xs-12 {
+        form {
+          div#dynamic-table_wrapper {
+            div#dynamic-table_filter {
+              input[type="search"] {
+                border-radius: 6px !important;
+              }
+            }
+          }
+
+          table#dynamic-table {
+            thead > tr {
+              & > th:not(:first-child) {
+                min-width: 80px !important;
+              }
+            }
+
+            tbody > tr {
+              border-radius: 6px;
+
+              & > td:nth-child(2) > a > span:first-child {
+                display: inline-block;
+                padding-right: 25px;
+              }
+            }
+          }
+
+          button#notPrint {
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+  }
+}
