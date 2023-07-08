@@ -25,32 +25,89 @@
               margin-right: 0;
             }
 
-            & > a {
-              border-radius: 6px;
-              background-color: var(--cyan-color);
+            // for notification and apps icon
+            &.light-green,
+            &.purple {
+              & > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-              transition: background-color 160ms ease-in-out;
+                background-color: transparent;
+                border-radius: 6px;
 
-              &[aria-expanded="true"] {
-                background-color: var(--dark-cyan-color);
+                i.ace-icon {
+                  font-size: 22px;
+                }
+
+                transition: background-color 160ms ease-in-out;
+
+                &:hover {
+                  background-color: var(--blue-hover-color);
+                }
+                &[aria-expanded="true"] {
+                  background-color: var(--blue-hover-dark-color);
+                }
               }
+            }
 
-              &:hover {
-                background-color: var(--dark-cyan-color);
-              }
+            // for user profile
+            &.light-blue {
+              & > a {
+                display: flex;
+                align-items: center;
 
-              // target only the user box
-              & > img {
-                margin: 0 8px 0 0 !important;
+                border-radius: 6px;
+                padding-left: 0;
 
-                & + span.user-info > small {
-                  font-weight: bold;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
+                background-color: var(--light-blue-color);
 
-                  &:nth-child(2) {
-                    font-size: 100%;
+                transition: background-color 160ms ease-in-out;
+
+                &:hover {
+                  background-color: var(--light-blue-hover-color);
+                }
+                &[aria-expanded="true"] {
+                  background-color: var(--light-blue-hover-dark-color);
+                }
+
+                // target only the user box
+                & > img {
+                  margin: 0 8px 0 0 !important;
+                  border-radius: 6px;
+                  border: 0;
+                  height: 120% !important;
+                  width: auto !important;
+
+                  & + span.user-info {
+                    top: 0;
+
+                    & > small {
+                      font-weight: bold;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+
+                      &:nth-child(2) {
+                        font-size: 100%;
+                      }
+                    }
                   }
+                }
+
+                span.badge {
+                  display: inline-flex;
+                  align-items: center;
+
+                  padding: {
+                    top: 2px;
+                    bottom: 2px;
+                    left: 4px;
+                    right: 4px;
+                  }
+
+                  background-color: var(--dark-danger-color);
+                  border-radius: 9999px;
+                  aspect-ratio: 1;
                 }
               }
             }
