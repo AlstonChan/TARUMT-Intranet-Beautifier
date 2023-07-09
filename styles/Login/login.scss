@@ -1,6 +1,23 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
 
+div.main-container {
+  div.main-content {
+    div.row {
+      margin: 0;
+
+      div.col-sm-10 {
+        margin: 0;
+        width: 100%;
+
+        div.position-relative {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
 h1[align="center"] {
   font-weight: bold !important;
 }
@@ -9,7 +26,15 @@ div#login-box {
   border: none;
   background: none;
 
+  border-radius: 10px;
+
+  & div.widget-body {
+    border-radius: 10px;
+  }
+
   & div.widget-main {
+    background-color: #fff;
+
     & h4 {
       font-weight: bold;
     }
@@ -59,6 +84,12 @@ div#login-box {
       }
     }
 
+    & div.social-or-login {
+      span {
+        background-color: #fff;
+      }
+    }
+
     & div.social-login {
       & a {
         display: flex;
@@ -100,6 +131,9 @@ div#login-box {
 
   & div.toolbar {
     background-color: var(--blue-color);
+
+    border-radius: 10px;
+
     & a.forgot-password-link {
       color: #fff !important;
 

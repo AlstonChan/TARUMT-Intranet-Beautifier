@@ -1,7 +1,13 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
+
 div.main-content {
   .page-content {
     div.row {
       div.col-xs-12 {
+        min-height: 300px;
+
+        // Announcement table
         form {
           div#dynamic-table_wrapper {
             div#dynamic-table_filter {
@@ -31,6 +37,29 @@ div.main-content {
           button#notPrint {
             border-radius: 6px;
           }
+        }
+
+        // Get started
+        a[target="_blank"] {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          color: var(--cyan-color);
+
+          h5 {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+          }
+        }
+        span.red {
+          display: block;
+          margin: 0 auto;
+
+          color: var(--danger-color);
+          font-weight: bold;
+          text-align: center;
         }
       }
     }
