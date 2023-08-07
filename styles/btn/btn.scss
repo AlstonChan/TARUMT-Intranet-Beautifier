@@ -1,0 +1,35 @@
+button {
+  &.btn-xs {
+    border-radius: 4px;
+  }
+
+  @mixin btnStyle($color, $hover_color) {
+    background-color: #{$color} !important;
+    border: 2px solid #{$color} !important;
+    border-radius: 8px !important;
+
+    transition: background-color 160ms ease-in-out,
+      border-color 160ms ease-in-out !important;
+
+    &:hover {
+      background-color: #{$hover_color} !important;
+      border-color: #{$hover_color} !important;
+    }
+
+    &:active,
+    &:focus,
+    &:active:focus {
+      outline: none !important;
+    }
+  }
+
+  &.btn-success {
+    @include btnStyle(var(--success-color), var(--success-hover-color));
+  }
+  &.btn-info {
+    @include btnStyle(var(--light-blue-color), var(--light-blue-hover-color));
+  }
+  &.btn-prev {
+    @include btnStyle(var(--grey-color), var(--grey-hover-color));
+  }
+}

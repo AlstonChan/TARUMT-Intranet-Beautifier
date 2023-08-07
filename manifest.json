@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "TARUMT Intranet Beautifier",
+    "name": "TAR UMT Intranet Beautifier",
     "description": "An extension to modify the user interface of TARUMT Intranet to make it look more modern and pleasing",
-    "version": "1.0",
+    "version": "1.2",
     "author": "devalston390@gmail.com",
     "content_scripts": [
         {
