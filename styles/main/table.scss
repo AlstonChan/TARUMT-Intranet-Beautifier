@@ -80,26 +80,26 @@ div.main-content {
         }
 
         // Get started
-        a[target="_blank"] {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        // a[target="_blank"] {
+        //   display: flex;
+        //   flex-direction: column;
+        //   align-items: center;
 
-          color: var(--cyan-color);
+        //   color: var(--cyan-color);
 
-          h5 {
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-          }
-        }
+        //   h5 {
+        //     font-size: 18px;
+        //     font-weight: bold;
+        //     text-align: center;
+        //   }
+        // }
         span.red {
-          display: block;
-          margin: 0 auto;
+          // display: block;
+          // margin: 0 auto;
 
           color: var(--danger-color);
           font-weight: bold;
-          text-align: center;
+          // text-align: center;
         }
       }
     }
