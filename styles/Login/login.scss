@@ -1,176 +1,224 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
 
-div.main-container {
-  div.main-content {
-    div.row {
-      margin: 0;
-
-      div.col-sm-10 {
+body.login-layout {
+  div.main-container {
+    margin-top: 5rem;
+    div.main-content {
+      div.row {
         margin: 0;
-        width: 100%;
 
-        div.position-relative {
-          border-radius: 10px;
+        div.col-sm-10 {
+          margin: 0;
+          width: 100%;
+
+          div.position-relative {
+            border-radius: 10px;
+          }
         }
       }
     }
   }
-}
 
-h1[align="center"] {
-  font-weight: bold !important;
-}
-
-div#login-box {
-  border: none;
-  background: none;
-
-  border-radius: 10px;
-
-  & div.widget-body {
-    border-radius: 10px;
+  h1[align="center"] {
+    font-weight: bold !important;
   }
 
-  & div.widget-main {
-    background-color: #fff;
+  div.login-container {
+    margin-top: 3rem;
+    max-width: 425px;
+    width: 100%;
 
-    & h4 {
-      font-weight: bold;
-    }
+    @mixin authContainer($page) {
+      border: none;
+      background: none;
 
-    & form#loginForm {
-      & span.input-icon {
-        input {
-          padding-left: 10px;
-          border: var(--blue-color) 1px solid;
-          border-radius: 6px !important;
+      border-radius: 15px;
 
-          transition: border 60ms ease-in-out, color 60ms ease-in-out;
-          &:focus {
-            border: var(--cyan-color) 2px solid;
+      & div.widget-body {
+        border-radius: 15px;
+      }
 
-            & + i.ace-icon {
-              color: var(--cyan-color);
+      & div.widget-main {
+        background-color: #fff;
+        border-radius: 15px;
+
+        & h4 {
+          font-weight: bold;
+        }
+
+        div.space-6 {
+          display: none;
+        }
+
+        p {
+          margin: 1.5rem 0;
+        }
+
+        & form#loginForm,
+        & form#frm_resetPwd {
+          & span.input-icon {
+            input {
+              padding-left: 10px;
+              border: var(--blue-color) 1px solid;
+              border-radius: 6px !important;
+
+              transition: border 60ms ease-in-out, color 60ms ease-in-out;
+              &:focus {
+                border: var(--cyan-color) 2px solid;
+
+                & + i.ace-icon {
+                  color: var(--cyan-color);
+                }
+              }
+              &::placeholder {
+                color: var(--light-grey-txt);
+              }
+            }
+
+            & i.ace-icon {
+              color: var(--blue-color);
+
+              transition: color 60ms ease-in-out;
             }
           }
-          &::placeholder {
-            color: var(--light-grey-txt);
+
+          & div.clearfix {
+            & button {
+              @if $page == login {
+                background-color: var(--info-color) !important;
+                &:hover,
+                &:focus {
+                  background-color: var(--dark-info-color) !important;
+                }
+              } @else {
+                background-color: var(--danger-color);
+                &:hover,
+                &:focus {
+                  background-color: var(--dark-danger-color) !important;
+                }
+              }
+
+              border: none !important;
+              padding: 7px 15px !important;
+              width: 100% !important;
+              border-radius: 6px !important;
+
+              transition: background-color 160ms ease-in-out;
+            }
           }
         }
 
-        & i.ace-icon {
-          color: var(--blue-color);
+        & div.social-or-login {
+          margin: 1rem 0;
+          span {
+            background-color: #fff;
+          }
+        }
 
-          transition: color 60ms ease-in-out;
+        & div.social-login {
+          & a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: none !important;
+            border: none !important;
+            border-radius: 0;
+
+            background-color: var(--cyan-color) !important;
+            border-radius: 8px;
+
+            transition: background-color 160ms ease-in-out;
+            &:hover,
+            &:focus {
+              background-color: var(--dark-cyan-color) !important;
+            }
+
+            & > img {
+              position: relative;
+              width: 40px !important;
+              height: auto;
+              aspect-ratio: 63/74;
+              padding: 7.5px 8.5px;
+            }
+
+            & > span {
+              color: #fff !important;
+              text-shadow: none;
+
+              &:hover {
+                text-decoration: underline !important;
+              }
+            }
+          }
         }
       }
 
-      & div.clearfix {
-        & button {
-          background-color: var(--info-color) !important;
-          border: none !important;
-          padding: 7px 15px !important;
-          width: 100% !important;
-          border-radius: 6px !important;
+      & div.toolbar {
+        color: #fff;
+        @if $page == login {
+          background-color: var(--blue-color);
+        } @else {
+          background-color: var(--dark-danger-color);
+        }
+        border: none;
 
-          transition: background-color 160ms ease-in-out;
+        border-radius: 10px;
 
-          &:hover,
-          &:focus {
-            background-color: var(--dark-info-color) !important;
+        a.back-to-login-link {
+          color: inherit;
+        }
+
+        & a.forgot-password-link {
+          color: #fff !important;
+
+          transition: color 160ms ease-in-out, font-weight 160ms ease-in-out;
+          &:hover {
+            font-weight: bold;
+            color: var(--light-highlight-color) !important;
           }
         }
       }
     }
 
-    & div.social-or-login {
-      span {
-        background-color: #fff;
-      }
+    div#login-box {
+      @include authContainer(login);
     }
+    div#forgot-box {
+      @include authContainer(forgot);
+    }
+  }
 
-    & div.social-login {
-      & a {
+  div.center {
+    margin-bottom: 2rem;
+
+    & div.alert-danger {
+      border-radius: 10px;
+      background-color: var(--danger-color);
+      color: #fff;
+      border: none;
+      max-width: 425px;
+      margin: 30px auto 0 auto;
+
+      & strong {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        background: none !important;
-        border: none !important;
-        border-radius: 0;
 
-        background-color: var(--cyan-color) !important;
-        border-radius: 8px;
-
-        transition: background-color 160ms ease-in-out;
-        &:hover,
-        &:focus {
-          background-color: var(--dark-cyan-color) !important;
+        & i.ace-icon {
+          color: var(--warning-color) !important;
         }
 
-        & > img {
-          position: relative;
-          width: 40px !important;
-          height: auto;
-          aspect-ratio: 63/74;
-          padding: 7.5px 8.5px;
-        }
-
-        & > span {
-          color: #fff !important;
-          text-shadow: none;
-
-          &:hover {
-            text-decoration: underline !important;
-          }
+        & span.bigger-150 {
+          font-size: 2rem;
+          margin-left: 5px;
         }
       }
     }
-  }
 
-  & div.toolbar {
-    background-color: var(--blue-color);
-
-    border-radius: 10px;
-
-    & a.forgot-password-link {
-      color: #fff !important;
-
-      transition: color 160ms ease-in-out, font-weight 160ms ease-in-out;
-      &:hover {
-        font-weight: bold;
-        color: var(--light-highlight-color) !important;
-      }
+    & span.black {
+      font-weight: bold !important;
     }
-  }
-}
-
-div.center {
-  & div.alert-danger {
-    border-radius: 10px;
-    background-color: var(--danger-color);
-    color: #fff;
-    border: none;
-    margin-top: 20px;
-
-    & strong {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & i.ace-icon {
-        color: var(--warning-color) !important;
-      }
-
-      & span.bigger-150 {
-        font-size: 2rem;
-        margin-left: 5px;
-      }
-    }
-  }
-
-  & span.black {
-    font-weight: bold !important;
   }
 }
