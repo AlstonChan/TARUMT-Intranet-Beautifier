@@ -2,6 +2,10 @@
 
 This is a chrome browser extension that tweak the user interface of TARUMT Intranet to make it look more modern and pleasing.
 
+## Prerequisites
+
+- Download Dart Sass compiler
+
 ## Local Development
 
 1. Clone this repository into your machine:

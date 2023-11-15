@@ -1,6 +1,33 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 TARUMT Intranet Beautifier Chan Alston
 
+@mixin specialRow {
+  & > div.col-xs-6 {
+    display: flex;
+    align-items: center;
+    float: none;
+    width: fit-content;
+
+    &:last-child {
+      margin: 0 0 0 auto;
+    }
+
+    & > #dynamic-table_length,
+    & > #dynamic-table_filter {
+      label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        select {
+          cursor: pointer;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+
 div.main-content {
   .page-content {
     div.row {
@@ -9,27 +36,111 @@ div.main-content {
 
         @mixin Table {
           div#dynamic-table_wrapper {
+            // Table Top
+            & > div:first-child {
+              display: flex;
+              background-color: #1672a6 !important;
+              color: #fff;
+              border-radius: 0 10px 0 0;
+
+              @include specialRow;
+            }
+
             div#dynamic-table_filter {
               input[type="search"] {
                 border-radius: 6px !important;
               }
             }
+
+            // Table Footer
+            & > div:last-child {
+              display: flex;
+              background-color: #1672a6 !important;
+              color: #fff;
+              border-radius: 0 0 10px 10px !important;
+
+              @include specialRow;
+
+              ul.pagination {
+                li {
+                  &:first-child {
+                    a {
+                      border-radius: 10px 0 0 10px !important;
+                    }
+                  }
+
+                  &:last-child {
+                    a {
+                      border-radius: 0 10px 10px 0 !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          div#ShowDelete {
+            margin: 10px 10px -5px 10px;
           }
 
           table#dynamic-table {
+            // General Styling for all row
+            tr {
+              & > td {
+                padding: {
+                  top: 10px;
+                  bottom: 10px;
+                }
+
+                &[bgcolor="#EAEAEA"] {
+                  background-color: rgb(230, 230, 230) !important;
+                }
+              }
+              & > th {
+                background-color: #1672a6 !important;
+                background-image: none;
+                color: #fff;
+
+                &::after {
+                  color: inherit;
+                }
+              }
+            }
+
+            // First row of table (header)
             thead > tr {
+              & > th:first-child > label > span::before {
+                border-radius: 6px;
+              }
+
               & > th:not(:first-child) {
                 white-space: nowrap !important;
                 min-width: 85px !important;
               }
             }
 
+            // Second row onwards (content)
             tbody > tr {
               border-radius: 6px;
 
-              & > td:nth-child(2) > a > span:first-child {
-                display: inline-block;
-                padding-right: 25px;
+              // Table row checkbox
+              & > td:first-child > label > span::before {
+                border-radius: 6px;
+              }
+
+              // Table row title
+              & > td:nth-child(2) > a {
+                display: flex;
+
+                & > span:first-child {
+                  display: inline-block;
+                  padding-right: 15px;
+                }
+
+                & > span.pull-right {
+                  float: none !important;
+                  margin: 0 0 0 auto;
+                }
               }
             }
           }
@@ -77,6 +188,56 @@ div.main-content {
         // facility booking main table
         div.tabbable {
           @include Table;
+
+          ul#inbox-tabs {
+            padding: 0;
+            margin: 0;
+            border: none;
+            display: flex;
+            position: static;
+
+            li {
+              float: none;
+              margin: 0;
+
+              &:first-child {
+                a {
+                  border-radius: 10px 0 0 0 !important;
+                }
+              }
+
+              &:last-child {
+                a {
+                  border-radius: 0 10px 0 0 !important;
+                }
+              }
+
+              &.active {
+                a {
+                  background-color: #1672a6 !important;
+                  color: #fff;
+                  i {
+                    color: inherit !important;
+                  }
+
+                  span.badge-info {
+                    background-color: #00cb74;
+                  }
+                }
+              }
+              a {
+                background-color: #f1f5fa;
+                border: none;
+                margin: 0;
+                padding: 8px 35px;
+
+                transition: background-color 160ms ease-in-out;
+                &:hover {
+                  background-color: #d8dbdf;
+                }
+              }
+            }
+          }
         }
 
         // Get started
