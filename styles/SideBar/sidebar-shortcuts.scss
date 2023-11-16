@@ -13,72 +13,221 @@ $triages: success, info, warning, danger;
   }
 }
 
-#sidebar-shortcuts {
-  &-large > button {
-    border-radius: 6px;
-    border: none !important;
-    padding: {
-      top: 2px !important;
-      bottom: 2px !important;
-    }
-    width: 39px;
+@mixin sideBar($is-min) {
+  &::before {
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
 
-    @each $triage in $triages {
-      &.btn-#{$triage} {
-        @include btnStyle($triage);
+  #sidebar-shortcuts {
+    &-large > button {
+      border-radius: 6px;
+      border: none !important;
+      padding: {
+        top: 2px !important;
+        bottom: 2px !important;
+      }
+      width: 39px;
+
+      @each $triage in $triages {
+        &.btn-#{$triage} {
+          @include btnStyle($triage);
+        }
+      }
+    }
+
+    &-mini > span {
+      @each $triage in $triages {
+        &.btn-#{$triage} {
+          @include btnStyle($triage);
+        }
       }
     }
   }
 
-  &-mini > span {
-    @each $triage in $triages {
-      &.btn-#{$triage} {
-        @include btnStyle($triage);
-      }
-    }
-  }
-}
+  ul.nav {
+    &.nav-list {
+      transition: background-color 160ms ease-in-out;
 
-ul.nav {
-  &.nav-list {
-    transition: background-color 160ms ease-in-out;
-    & > li {
-      border-color: var(--blue-color);
-      font-weight: bold;
-
-      & > a {
-        // background-color: var(--light-blue-color) !important;
-
-        & > b.arrow {
-          transition: transform 160ms ease-in-out;
-        }
-      }
-      &.open > a {
-        // background-color: var(--dark-light-blue-color) !important;
-
-        & > b.arrow {
-          transform: rotate(180deg);
+      & > li {
+        border: none;
+        font-weight: bold;
+        background-color: inherit;
+        @if $is-min == true {
+          margin: 4px 0;
+        } @else {
+          margin: 6px 10px;
         }
 
-        & ~ ul.submenu > li.active > a {
+        &:hover::before {
+          display: none !important;
+        }
+
+        & > a {
+          display: flex;
+          align-items: center;
+
+          background-color: inherit;
+          border-radius: 8px;
+
+          transition: background-color 160ms ease-in-out,
+            font-weight 160ms ease-in-out;
+          &:hover {
+            background-color: #dfdede !important;
+            color: #0f4a6c !important;
+            font-weight: bold !important;
+          }
+
+          &.dropdown-toggle {
+            span {
+              border-radius: 8px 8px 0 0;
+            }
+          }
+
+          & > b.arrow {
+            transition: transform 160ms ease-in-out;
+          }
+        }
+
+        & > ul.submenu {
+          background-color: #f2f2f2 !important;
+          border-radius: 0 0 8px 8px;
+
+          & > li {
+            background-color: inherit;
+
+            & > a {
+              background-color: inherit;
+
+              &:hover {
+                background-color: #dfdede !important;
+                color: #0f4a6c !important;
+                font-weight: bold !important;
+              }
+            }
+          }
+        }
+
+        &.open > a {
+          background-color: #dfdede;
+          color: #0f4a6c !important;
           font-weight: bold;
 
-          & > i.menu-icon {
-            color: inherit !important;
+          & > b.arrow {
+            transform: rotate(180deg);
+          }
+
+          & ~ ul.submenu {
+            background-color: #f2f2f2 !important;
+
+            & > li {
+              background-color: inherit;
+              border-radius: 8px;
+
+              a {
+                background-color: inherit;
+                border-radius: 8px;
+
+                &:hover {
+                  background-color: #dfdede;
+                  color: #0f4a6c !important;
+                  font-weight: bold;
+                }
+              }
+
+              &::before {
+                border-color: #1672a6;
+              }
+            }
+
+            & > li.active > a {
+              font-weight: bold;
+
+              @if $is-min == false {
+                &::after {
+                  right: -10px !important;
+                }
+              } @else {
+                &::after {
+                  right: 0 !important;
+                }
+              }
+
+              & > i.menu-icon {
+                color: inherit !important;
+              }
+            }
+          }
+        }
+        &.active {
+          @if $is-min == false {
+            &::after {
+              right: -10px !important;
+            }
+          } @else {
+            &::after {
+              right: 0px !important;
+            }
+          }
+
+          & > a::after {
+            @if $is-min == false {
+              right: -10px !important;
+            } @else {
+              right: 0 !important;
+            }
+            top: 2px;
+            border-width: 14px 8px;
           }
         }
       }
     }
   }
+
+  div.sidebar-toggle {
+    border: none;
+    background-color: inherit;
+    margin: 0 10px;
+    padding: 6px 0;
+    &.sidebar-collapse {
+      margin: 0;
+    }
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    &::before {
+      border-color: var(--blue-color) !important;
+      top: 15px;
+    }
+
+    &:hover {
+      background-color: #dfdede;
+      color: #0f4a6c !important;
+      font-weight: bold;
+    }
+  }
 }
 
-div.sidebar-toggle {
-  // background-color: var(--light-blue-color) !important;
-  border-color: var(--blue-color) !important;
+div#sidebar {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
 
-  cursor: pointer;
+  width: 200px;
 
-  &::before {
-    border-color: var(--blue-color) !important;
+  @include sideBar(false);
+
+  &.menu-min {
+    width: 43px;
+    & + div.main-content {
+      margin-left: 43px !important;
+    }
+    @include sideBar(true);
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-left: -200px;
+    position: relative;
   }
 }

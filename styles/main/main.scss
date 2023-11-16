@@ -5,6 +5,8 @@
 @use "./breadcrumb.scss";
 
 div.main-content {
+  margin-left: 200px !important;
+
   .page-content {
     max-width: 1400px;
     margin: 0 auto;
