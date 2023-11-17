@@ -216,6 +216,10 @@ div#sidebar {
 
   width: 200px;
 
+  & + div.main-content {
+    margin-left: 200px !important;
+  }
+
   @include sideBar(false);
 
   &.menu-min {

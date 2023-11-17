@@ -5,13 +5,18 @@ $footer-size: 40.6px;
 
 div.main-container {
   div.main-content {
-    div#login-box {
-      & > h4.header {
-        font-weight: bold;
-      }
+    div.login-container {
+      margin-top: 4rem;
 
-      & > div.toolbar {
-        border-radius: 10px;
+      div#login-box {
+        & > h4.header {
+          font-weight: bold;
+        }
+
+        & > div.toolbar {
+          background-color: var(--blue-color);
+          border-radius: 10px;
+        }
       }
     }
   }

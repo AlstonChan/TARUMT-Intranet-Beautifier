@@ -1,0 +1,37 @@
+div#accordion {
+  &.accordion-style1.panel-group {
+    margin-bottom: 0;
+    .panel.panel-default {
+      border-radius: 8px;
+
+      .panel-heading {
+        border-radius: 8px;
+
+        .panel-title {
+          border-radius: 8px;
+
+          a.accordion-toggle {
+            &.collapsed {
+              border-radius: 8px;
+              background-color: #f1f8fd;
+              color: var(--blue-color);
+            }
+            background-color: var(--blue-color);
+            color: #fff;
+            border-radius: 8px 8px 0 0;
+
+            transition: background-color 160ms ease-in-out,
+              color 160ms ease-in-out;
+          }
+        }
+      }
+
+      .panel-collapse.collapse.in {
+        border-radius: 0 0 8px 8px;
+        .panel-body {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+    }
+  }
+}
