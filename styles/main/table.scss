@@ -32,7 +32,36 @@ div.main-content {
   .page-content {
     div.row {
       div.col-xs-12 {
-        min-height: 300px;
+        // min-height: 300px;
+        // Co-Curricular Course Registration
+        div.widget-box.widget-color-blue {
+          border: none;
+          .widget-header.widget-header-small {
+            border-radius: 8px 8px 0 0;
+            padding: 5px 20px;
+          }
+          &.collapsed {
+            .widget-header.widget-header-small {
+              border-radius: 8px;
+            }
+          }
+          .widget-body {
+            border: 1px var(--blue-color) solid;
+            border-top: none;
+
+            .widget-main {
+              p {
+                overflow: hidden;
+                height: 100%;
+
+                img {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+            }
+          }
+        }
 
         @mixin Table {
           div#dynamic-table_wrapper {
