@@ -45,18 +45,62 @@ div.main-content {
               border-radius: 8px;
             }
           }
-          .widget-body {
+          & > .widget-body {
             border: 1px var(--blue-color) solid;
             border-top: none;
 
-            .widget-main {
-              p {
+            & > .widget-main {
+              & > p {
                 overflow: hidden;
                 height: 100%;
 
-                img {
+                & > img {
                   width: 100%;
                   height: auto;
+                }
+              }
+            }
+          }
+        }
+        // CO-curricular Course Schedule for Session 20XXXX
+        table#simple-table.table.table-striped.table-bordered.table-hover {
+          tbody {
+            tr {
+              position: relative;
+
+              // cannot use display flex to table cell
+              td:not(first-child) {
+                div[align="center"] {
+                  margin: 0;
+                }
+                .backText {
+                  top: 2px;
+                }
+                & > div:first-child {
+                  margin-top: 25px;
+
+                  // if backText is NOT the first child
+                  &:not(.backText) {
+                    // apply margin to the first div element with align="center"
+                    & + div:is([align="center"]):first-of-type {
+                      margin-top: 25px;
+                    }
+                  }
+
+                  // if backText is the first child
+                  &:is(.backText) {
+                    margin: 0;
+
+                    // apply margin to the second element
+                    & + div {
+                      margin-top: 25px;
+
+                      // remove duplicate backText
+                      &:is(.backText) {
+                        display: none;
+                      }
+                    }
+                  }
                 }
               }
             }

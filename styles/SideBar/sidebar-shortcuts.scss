@@ -217,7 +217,7 @@ div#sidebar {
   width: 200px;
 
   & + div.main-content {
-    margin-left: 200px !important;
+    margin-left: 200px;
   }
 
   @include sideBar(false);
@@ -233,5 +233,9 @@ div#sidebar {
   @media screen and (max-width: 992px) {
     margin-left: -200px;
     position: relative;
+
+    div.main-content {
+      margin-left: 0 !important;
+    }
   }
 }

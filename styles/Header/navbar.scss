@@ -9,6 +9,12 @@
     bottom: 8px !important;
   }
 
+  @media screen and (max-width: 992px) {
+    padding: {
+      right: 6px;
+    }
+  }
+
   & .navbar-buttons {
     &.navbar-header {
       &.pull-right {
@@ -114,6 +120,8 @@
 
             & > ul {
               border-radius: 6px !important;
+              top: 102%;
+              right: 0;
 
               & > li.dropdown-header {
                 border-radius: 6px !important;
